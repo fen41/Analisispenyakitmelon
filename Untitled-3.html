@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deteksi Hama dan Penyakit Tanaman Melon</title>
+    <style>
+        /* Gaya umum untuk body */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url('https://images.app.goo.gl/nFHeAjGra4Ze5hLv5');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #333;
+            margin: 0;
+        }
+
+        /* Gaya untuk container utama */
+        .container {
+            margin: 0 auto;
+            padding: 20px;
+            max-width: 600px;
+            background-color: rgba(255, 255, 255, 0.85); /* Latar belakang transparan */
+            border-radius: 8px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        /* Gaya untuk judul */
+        h1 {
+            color: #4CAF50;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        /* Gaya untuk input area */
+        #input-area {
+            margin: 20px 0;
+        }
+
+        label {
+            font-size: 18px;
+            color: #2c6b2f;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            resize: vertical;
+        }
+
+        button {
+            padding: 12px 25px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Gaya untuk bagian hasil deteksi */
+        #hasil {
+            margin-top: 30px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 10px;
+        }
+
+        ul li {
+            text-align: left;
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: #f1f1f1;
+            border-radius: 8px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        ul li:hover {
+            background-color: #e8f5e9;
+        }
+
+        ul li strong {
+            color: #2c6b2f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Deteksi Hama dan Penyakit Tanaman Melon</h1>
+        <p>Masukkan ciri-ciri tanaman untuk mendeteksi apakah tanaman melon Anda terkena hama atau penyakit.</p>
+
+        <div id="input-area">
+            <label for="gejalaInput">Ciri-ciri Tanaman:</label>
+            <textarea id="gejalaInput" placeholder="Contoh: Daun menguning, bintik hitam, akar membusuk, dll." rows="4"></textarea>
+            <button onclick="deteksiHamaPenyakit()">Deteksi Hama dan Penyakit</button>
+        </div>
+
+        <div id="hasil">
+            <h2>Hasil Deteksi:</h2>
+            <div id="deteksiOutput">Masukkan ciri-ciri tanaman untuk memulai deteksi.</div>
+        </div>
+    </div>
+
+    <script>
+        function deteksiHamaPenyakit() {
+            const gejala = document.getElementById("gejalaInput").value.toLowerCase();
+            const output = document.getElementById("deteksiOutput");
+
+            if (gejala.includes("kuning") || gejala.includes("kering")) {
+                output.innerHTML = "<ul><li><strong>Kemungkinan Penyakit:</strong> Layu Fusarium</li><li><strong>Solusi:</strong> Penyiraman yang cukup dan penggunaan fungisida.</li></ul>";
+            } else if (gejala.includes("bintik") || gejala.includes("keriput")) {
+                output.innerHTML = "<ul><li><strong>Kemungkinan Hama:</strong> Kutu Daun</li><li><strong>Solusi:</strong> Gunakan insektisida atau manfaatkan predator alami seperti ladybug.</li></ul>";
+            } else {
+                output.innerHTML = "Hama atau penyakit tidak terdeteksi berdasarkan gejala yang diberikan.";
+            }
+        }
+    </script>
+</body>
+</html>
